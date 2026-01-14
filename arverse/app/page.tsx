@@ -79,6 +79,36 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+            {/* Other Products Footer */}
+            <div className="relative z-10 py-12 bg-slate-950 border-t border-slate-900">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <p className="text-slate-500 text-sm uppercase tracking-wider font-semibold mb-6">Other Products by ARVAAS</p>
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
+                        <a
+                            href="https://arva-as.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center text-slate-400 hover:text-emerald-400 transition-colors"
+                        >
+                            <span className="text-base font-medium">Neraca Ummah</span>
+                            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </a>
+                        <a
+                            href="https://arva-jurnal.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center text-slate-400 hover:text-emerald-400 transition-colors"
+                        >
+                            <span className="text-base font-medium">Arvaas Jurnal</span>
+                            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </a>
+                    </div>
+                    <div className="mt-12 text-slate-600 text-xs">
+                        &copy; {new Date().getFullYear()} Arverse. All rights reserved.
+                    </div>
+                </div>
+            </div>
         </main>
     );
 }
