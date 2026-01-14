@@ -465,7 +465,7 @@ export default function ArPage() {
                                             </div>
 
                                             {/* Verse Display Area with Word Highlighting & Scrolling */}
-                                            <div className={`relative flex transition-all duration-500 overflow-y-auto custom-scrollbar items-start ${VERSES[currentVerseIdx].arabic.length > 250 ? 'py-4 md:py-6' : 'pt-12 pb-16 md:pt-20 md:pb-32'} px-2 md:px-10 h-[250px] md:h-[450px]`}>
+                                            <div className={`relative flex transition-all duration-500 overflow-y-auto custom-scrollbar items-start ${VERSES[currentVerseIdx].arabic.length > 250 ? 'py-4 md:py-6' : 'pt-12 pb-16 md:pt-20 md:pb-32'} px-2 md:px-10 ${(murojaahMode === 'listening' || murojaahMode === 'evaluating') ? 'h-[400px] md:h-[600px]' : 'h-[250px] md:h-[450px]'}`}>
                                                 <div
                                                     className={`${getVerseFontSize(VERSES[currentVerseIdx].arabic)} font-quran text-white text-right flex flex-wrap justify-start transition-all duration-700 pb-20 md:pb-32`}
                                                     dir="rtl"
@@ -496,7 +496,7 @@ export default function ArPage() {
                                             </div>
 
                                             {/* Translation & Nav */}
-                                            <div className="space-y-6">
+                                            <div className={`space-y-6 ${(murojaahMode === 'listening' || murojaahMode === 'evaluating') ? 'hidden' : ''}`}>
                                                 <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                                                 <p className={`${VERSES[currentVerseIdx].translation.length > 200 ? 'text-xs md:text-sm' : 'text-sm md:text-lg'} text-slate-300 leading-relaxed text-left font-light italic transition-all duration-500 ${murojaahMode === 'listening' || murojaahMode === 'evaluating' ? 'opacity-10 blur-md' : 'opacity-100'}`}>
                                                     "{VERSES[currentVerseIdx].translation}"
