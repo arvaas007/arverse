@@ -451,9 +451,9 @@ export default function ArPage() {
                                                     <span className={`text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5 transition-colors ${murojaahMode === 'listening' ? 'text-emerald-400' : 'text-emerald-400'}`}>
                                                         {murojaahMode === 'listening' ? "Spiritual Alignment Active" : (isArMode ? "Spatial Sync" : "Spiritual Core Stabilized")}
                                                     </span>
-                                                    <div className="flex items-center space-x-3">
-                                                        <h3 className="text-white font-bold text-base md:text-lg">{VERSES[currentVerseIdx].ref}</h3>
-                                                        <span className="bg-emerald-500/15 text-emerald-400 text-[9px] font-bold px-2 py-1 rounded-md border border-emerald-500/20 tracking-widest uppercase">Kemenag RI</span>
+                                                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0 items-start">
+                                                        <h3 className="text-white font-bold text-base md:text-lg leading-tight">{VERSES[currentVerseIdx].ref}</h3>
+                                                        <span className="bg-emerald-500/15 text-emerald-400 text-[9px] font-bold px-2 py-1 rounded-md border border-emerald-500/20 tracking-widest uppercase w-fit">Kemenag RI</span>
                                                     </div>
                                                 </div>
                                                 <div className="text-right hidden sm:block">
