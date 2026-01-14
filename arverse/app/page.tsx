@@ -11,8 +11,11 @@ export default function Home() {
             </div>
 
             <nav className="relative z-10 w-full px-6 py-6 flex justify-between items-center max-w-7xl mx-auto">
-                <div className="text-2xl font-bold font-serif tracking-tight text-white">
-                    AR<span className="text-emerald-500">VERSE</span>
+                <div className="flex flex-col">
+                    <div className="text-2xl font-bold font-serif tracking-tight text-white leading-none">
+                        AR<span className="text-emerald-500">VERSE</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-500/60 font-serif italic tracking-wider self-end mt-0.5">by arvaas</span>
                 </div>
                 <div className="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
                     <Link href="#" className="hover:text-emerald-400 transition-colors">Features</Link>
