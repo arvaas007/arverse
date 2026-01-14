@@ -156,6 +156,19 @@ export default function ArPage() {
         }
     }, [permission, isArMode]);
 
+    // Cleanup audio on unmount (navigation away)
+    useEffect(() => {
+        return () => {
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+            if (typeof window !== 'undefined') {
+                window.speechSynthesis?.cancel();
+            }
+        };
+    }, [audio]);
+
     // Game logic for drawing card
     const pickRandomCard = () => {
         setGameState("draw");
