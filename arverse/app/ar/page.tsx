@@ -248,7 +248,7 @@ export default function ArPage() {
     const handleMurojaahToggle = () => {
         if (murojaahMode === "idle") {
             setMurojaahMode("listening");
-            setTranscript("Lantunan Syeikh Mishary dimulai...");
+            setTranscript("Lantunan dimulai...");
 
             // Play Real Audio
             const currentAudioSource = VERSES[currentVerseIdx].audio;
@@ -368,7 +368,7 @@ export default function ArPage() {
                                                 />
                                             </div>
                                             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-emerald-600 px-4 py-1.5 rounded-full border border-emerald-400/50 shadow-xl whitespace-nowrap">
-                                                <p className="text-[10px] font-bold text-white uppercase tracking-widest">Syeikh Mishary Rasyid</p>
+                                                <p className="text-[10px] font-bold text-white uppercase tracking-widest">Arverse Player</p>
                                             </div>
                                         </div>
                                         <p className="mt-8 text-emerald-400/60 font-mono text-[10px] tracking-widest uppercase text-center max-w-[200px]">Initializing AI Guidance Engine</p>
