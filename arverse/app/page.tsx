@@ -58,20 +58,20 @@ export default function Home() {
             <div className="relative z-10 py-20 bg-white mt-12 border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:border-emerald-200 transition-all hover:-translate-y-1">
+                        <Link href="/ai" className="block p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:border-emerald-200 transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 shadow-inner">
                                 <Mic className="w-7 h-7" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Smart Tarteel AI</h3>
                             <p className="text-slate-600 text-sm leading-relaxed">Real-time pronunciation correction and verse recognition using advanced speech models.</p>
-                        </div>
-                        <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:border-emerald-200 transition-all hover:-translate-y-1">
+                        </Link>
+                        <Link href="/ar" className="block p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:border-emerald-200 transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6 text-teal-600 shadow-inner">
                                 <Eye className="w-7 h-7" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Immersive AR</h3>
                             <p className="text-slate-600 text-sm leading-relaxed">Project verses into your physical space for focused reading and contemplation.</p>
-                        </div>
+                        </Link>
                         <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:border-emerald-200 transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mb-6 text-sky-600 shadow-inner">
                                 <BookOpen className="w-7 h-7" />
