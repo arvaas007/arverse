@@ -313,30 +313,30 @@ export default function ArPage() {
     };
 
     return (
-        <main className="min-h-screen w-full bg-black relative flex flex-col font-sans select-none" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+        <main className="min-h-screen w-full bg-slate-50 relative flex flex-col font-sans select-none" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
             {/* Background Environment */}
-            <div className="absolute inset-0 z-0 text-white">
+            <div className="absolute inset-0 z-0 text-slate-900">
                 {gameState === "lobby" || gameState === "draw" ? (
-                    <div className="w-full h-full bg-slate-950 relative flex flex-col items-center justify-center p-6 lg:p-12 overflow-hidden">
+                    <div className="w-full h-full bg-slate-50 relative flex flex-col items-center justify-center p-6 lg:p-12 overflow-hidden">
                         {/* Animated Mesh Background */}
                         <div className="absolute inset-0 opacity-20 bg-mesh pointer-events-none" />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-500/5 rounded-full blur-[150px] animate-pulse" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-50/50 rounded-full blur-[100px] animate-pulse" />
 
                         {/* Lobby Header */}
                         <div className="relative z-10 text-center mb-12 animate-in fade-in slide-in-from-top-4 duration-1000">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">Daily Murojaah</h1>
-                            <p className="text-emerald-500/70 font-mono text-xs md:text-sm tracking-[0.4em] uppercase">Mystery Deck Ready for Sync</p>
+                            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Daily Murojaah</h1>
+                            <p className="text-emerald-800 font-mono text-xs md:text-sm tracking-[0.4em] uppercase">Mystery Deck Ready for Sync</p>
                         </div>
 
                         {/* Mystery Card Deck */}
                         <div className="relative z-10 flex space-x-3 md:space-x-8 mb-16 h-48 md:h-80 items-center justify-center w-full px-4 overflow-visible">
                             {[0, 1, 2].map((i) => (
-                                <div key={i} className={`w-24 sm:w-32 md:w-48 h-full bg-slate-900/40 backdrop-blur-xl border border-emerald-500/20 rounded-[1.5rem] md:rounded-[2.2rem] shadow-2xl relative transition-all duration-700 transform ${gameState === 'draw' ? 'scale-0 rotate-[360deg] opacity-0' : 'hover:-translate-y-4 hover:border-emerald-500/50 hover:shadow-emerald-500/10'}`} style={{ transitionDelay: `${i * 100}ms` }}>
+                                <div key={i} className={`w-24 sm:w-32 md:w-48 h-full bg-white/40 backdrop-blur-xl border border-emerald-200 rounded-[1.5rem] md:rounded-[2.2rem] shadow-2xl relative transition-all duration-700 transform ${gameState === 'draw' ? 'scale-0 rotate-[360deg] opacity-0' : 'hover:-translate-y-4 hover:border-emerald-500/50 hover:shadow-emerald-500/10'}`} style={{ transitionDelay: `${i * 100}ms` }}>
                                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-[2rem]" />
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <Sparkles className="w-8 md:w-12 h-8 md:h-12 text-emerald-500/20" />
+                                        <Sparkles className="w-8 md:w-12 h-8 md:h-12 text-emerald-300" />
                                     </div>
-                                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-8 h-1 bg-emerald-500/10 rounded-full" />
+                                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-8 h-1 bg-emerald-50 rounded-full" />
                                 </div>
                             ))}
                         </div>
@@ -346,7 +346,7 @@ export default function ArPage() {
                             <button
                                 onClick={pickRandomCard}
                                 disabled={gameState === 'draw'}
-                                className="px-12 py-5 bg-emerald-600 text-white rounded-full font-bold text-sm md:text-base tracking-[0.2em] uppercase shadow-[0_0_50px_rgba(16,185,129,0.3)] hover:shadow-[0_0_70px_rgba(16,185,129,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center space-x-4 disabled:opacity-50"
+                                className="px-12 py-5 bg-emerald-600 text-slate-900 rounded-full font-bold text-sm md:text-base tracking-[0.2em] uppercase shadow-[0_0_50px_rgba(16,185,129,0.1)] hover:shadow-[0_0_70px_rgba(16,185,129,0.1)] hover:scale-105 active:scale-95 transition-all flex items-center space-x-4 disabled:opacity-50"
                             >
                                 <Target className="w-5 h-5" />
                                 <span>Draw Daily Card</span>
@@ -356,35 +356,35 @@ export default function ArPage() {
 
                         {/* Drawing Pulse Overlay */}
                         {gameState === 'draw' && (
-                            <div className="absolute inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center animate-in fade-in duration-300">
+                            <div className="absolute inset-0 z-50 bg-slate-50/40 backdrop-blur-sm flex items-center justify-center animate-in fade-in duration-300">
                                 <div className="flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-24">
                                     <div className="text-center order-2 md:order-1">
                                         <div className="relative w-32 h-32 md:w-48 md:h-48 mb-6 mx-auto">
-                                            <div className="absolute inset-0 border-4 border-emerald-500/20 rounded-full animate-ping" />
-                                            <div className="absolute inset-2 border-2 border-emerald-500/40 rounded-full animate-spin duration-1000" />
+                                            <div className="absolute inset-0 border-4 border-emerald-200 rounded-full animate-ping" />
+                                            <div className="absolute inset-2 border-2 border-emerald-400 rounded-full animate-spin duration-1000" />
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <Target className="w-12 md:w-16 h-12 md:h-16 text-emerald-500 animate-pulse" />
                                             </div>
                                         </div>
-                                        <h2 className="text-white font-mono text-sm md:text-base tracking-[0.5em] uppercase animate-pulse">Syncing Neural Waveforms...</h2>
+                                        <h2 className="text-slate-900 font-mono text-sm md:text-base tracking-[0.5em] uppercase animate-pulse">Syncing Neural Waveforms...</h2>
                                     </div>
 
                                     {/* Mishary Rasyid Intro Persona */}
                                     <div className="order-1 md:order-2 flex flex-col items-center animate-in slide-in-from-right-12 duration-1000">
                                         <div className="relative group">
-                                            <div className="absolute -inset-4 bg-emerald-500/20 rounded-[2.5rem] blur-2xl group-hover:bg-emerald-500/30 transition-all duration-700" />
-                                            <div className="relative w-32 h-32 md:w-56 md:h-56 rounded-[2rem] overflow-hidden border-2 border-emerald-500/40 shadow-2xl">
+                                            <div className="absolute -inset-4 bg-emerald-100 rounded-[2.5rem] blur-xl group-hover:bg-emerald-500/30 transition-all duration-700" />
+                                            <div className="relative w-32 h-32 md:w-56 md:h-56 rounded-[2rem] overflow-hidden border-2 border-emerald-400 shadow-2xl">
                                                 <img
                                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hE67-6vXkL6rXvAnF_GfD7J_6v_G000000&s"
                                                     alt="Mishary Rasyid"
-                                                    className="w-full h-full object-cover grayscale brightness-125"
+                                                    className="w-full h-full object-cover grayscale brightness-100"
                                                 />
                                             </div>
-                                            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-emerald-600 px-4 py-1.5 rounded-full border border-emerald-400/50 shadow-xl whitespace-nowrap">
-                                                <p className="text-[10px] font-bold text-white uppercase tracking-widest">Arverse Player</p>
+                                            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-emerald-600 px-4 py-1.5 rounded-full border border-emerald-300 shadow-xl whitespace-nowrap">
+                                                <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">Arverse Player</p>
                                             </div>
                                         </div>
-                                        <p className="mt-8 text-emerald-400/60 font-mono text-[10px] tracking-widest uppercase text-center max-w-[200px]">Initializing AI Guidance Engine</p>
+                                        <p className="mt-8 text-emerald-700/70 font-mono text-[10px] tracking-widest uppercase text-center max-w-[200px]">Initializing AI Guidance Engine</p>
                                     </div>
                                 </div>
                             </div>
@@ -393,9 +393,9 @@ export default function ArPage() {
                 ) : (
                     <div className="w-full min-h-screen relative">
                         {permission === "pending" && (
-                            <div className="w-full h-full flex flex-col items-center justify-center bg-slate-950 text-white">
+                            <div className="w-full h-full flex flex-col items-center justify-center bg-slate-50 text-slate-900">
                                 <div className="relative">
-                                    <div className="w-24 h-24 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin mb-6" />
+                                    <div className="w-24 h-24 border-4 border-emerald-200 border-t-emerald-500 rounded-full animate-spin mb-6" />
                                     <Camera className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-emerald-500" />
                                 </div>
                                 <p className="text-emerald-500 font-mono text-xs tracking-widest uppercase animate-pulse">Initializing Neural Link...</p>
@@ -413,18 +413,18 @@ export default function ArPage() {
                                         />
                                         {/* Scanning Laser Line */}
                                         <div
-                                            className="absolute w-full h-[2px] bg-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.8)] z-10 pointer-events-none"
+                                            className="absolute w-full h-[2px] bg-emerald-50/500 shadow-[0_0_15px_rgba(16,185,129,0.1)] z-10 pointer-events-none"
                                             style={{ top: `${scanProgress}%` }}
                                         />
                                     </>
                                 ) : (
                                     /* Digital Environment (Non-AR Mode) */
-                                    <div className="w-full h-full bg-slate-950 relative flex items-center justify-center overflow-hidden">
+                                    <div className="w-full h-full bg-slate-50 relative flex items-center justify-center overflow-hidden">
                                         {/* Abstract Background Elements */}
                                         <div className="absolute inset-0 opacity-40">
-                                            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse" />
-                                            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full" />
+                                            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-emerald-600/10 rounded-full blur-[80px] animate-pulse" />
+                                            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyan-600/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-slate-200 rounded-full" />
                                         </div>
                                         {/* Islamic Geometric Pattern Overlay */}
                                         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -436,7 +436,7 @@ export default function ArPage() {
                                         {/* Geometric Grid */}
                                         <div className="absolute inset-0 opacity-20"
                                             style={{
-                                                backgroundImage: 'radial-gradient(circle, #10b981 1px, transparent 1px)',
+                                                backgroundImage: 'radial-gradient(circle, rgba(16,185,129,0.4) 1px, transparent 1px)',
                                                 backgroundSize: '40px 40px',
                                                 transform: `perspective(1000px) rotateX(60deg) translateY(${mousePos.y * 0.5}px) translateZ(-100px)`
                                             }}
@@ -450,10 +450,10 @@ export default function ArPage() {
                                     {/* MAIN AREA: Verse Projection */}
                                     <div className="w-full lg:w-2/3 flex items-center justify-center p-4">
                                         {/* AR Floating Verse Card */}
-                                        <div className={`w-full ${VERSES[currentVerseIdx].arabic.length > 100 ? 'max-w-4xl' : 'max-w-2xl'} bg-slate-900/60 backdrop-blur-3xl border border-white/10 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative group transition-all duration-500 pointer-events-auto ${murojaahMode === 'listening' || murojaahMode === 'evaluating' ? 'scale-[0.98] border-cyan-500/30' : murojaahMode === 'corrected' ? 'border-red-500/40' : murojaahMode === 'success' ? 'border-emerald-500/40' : ''}`}>
+                                        <div className={`w-full ${VERSES[currentVerseIdx].arabic.length > 100 ? 'max-w-4xl' : 'max-w-2xl'} bg-white/60 backdrop-blur-3xl border border-slate-200 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative group transition-all duration-500 pointer-events-auto ${murojaahMode === 'listening' || murojaahMode === 'evaluating' ? 'scale-[0.98] border-teal-300' : murojaahMode === 'corrected' ? 'border-red-500/40' : murojaahMode === 'success' ? 'border-emerald-400' : ''}`}>
                                             {/* Status Dots */}
-                                            <div className="hidden md:flex absolute -top-3 left-1/2 -translate-x-1/2 space-x-1.5 bg-slate-800 px-3 py-1 rounded-full border border-white/5">
-                                                <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${murojaahMode === 'listening' ? 'bg-cyan-500' : murojaahMode === 'corrected' ? 'bg-red-500' : 'bg-emerald-500'}`} />
+                                            <div className="hidden md:flex absolute -top-3 left-1/2 -translate-x-1/2 space-x-1.5 bg-slate-800 px-3 py-1 rounded-full border border-slate-200">
+                                                <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${murojaahMode === 'listening' ? 'bg-teal-500' : murojaahMode === 'corrected' ? 'bg-red-500' : 'bg-emerald-500'}`} />
                                                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/30" />
                                                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/30" />
                                             </div>
@@ -461,17 +461,17 @@ export default function ArPage() {
                                             {/* Card Header */}
                                             <div className="flex justify-between items-start mb-8">
                                                 <div className="flex flex-col">
-                                                    <span className={`text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5 transition-colors ${murojaahMode === 'listening' ? 'text-emerald-400' : 'text-emerald-400'}`}>
+                                                    <span className={`text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5 transition-colors ${murojaahMode === 'listening' ? 'text-emerald-600' : 'text-emerald-600'}`}>
                                                         {murojaahMode === 'listening' ? "Spiritual Alignment Active" : (isArMode ? "Spatial Sync" : "Spiritual Core Stabilized")}
                                                     </span>
                                                     <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 items-start">
-                                                        <h3 className="text-white font-bold text-base md:text-lg leading-tight">{VERSES[currentVerseIdx].ref}</h3>
-                                                        <span className="text-emerald-500/50 text-[9px] font-bold tracking-widest uppercase mt-0 sm:mt-1">Kemenag RI</span>
+                                                        <h3 className="text-slate-900 font-bold text-base md:text-lg leading-tight">{VERSES[currentVerseIdx].ref}</h3>
+                                                        <span className="text-emerald-600 text-[9px] font-bold tracking-widest uppercase mt-0 sm:mt-1">Kemenag RI</span>
                                                     </div>
                                                 </div>
                                                 <div className="text-right hidden sm:block">
-                                                    <span className="text-emerald-500/50 text-[9px] font-bold tracking-[0.1em] uppercase block mb-1">Recital Focus</span>
-                                                    <span className={`font-mono text-sm md:text-base font-bold transition-colors ${murojaahMode === 'success' ? 'text-emerald-400' : 'text-emerald-500/70'}`}>
+                                                    <span className="text-emerald-600 text-[9px] font-bold tracking-[0.1em] uppercase block mb-1">Recital Focus</span>
+                                                    <span className={`font-mono text-sm md:text-base font-bold transition-colors ${murojaahMode === 'success' ? 'text-emerald-600' : 'text-emerald-800'}`}>
                                                         {murojaahMode === 'success' ? "Focus Peak" : "Synchronizing"}
                                                     </span>
                                                 </div>
@@ -480,14 +480,14 @@ export default function ArPage() {
                                             {/* Verse Display Area with Word Highlighting & Scrolling */}
                                             <div className={`relative flex transition-all duration-500 overflow-y-auto custom-scrollbar items-start ${VERSES[currentVerseIdx].arabic.length > 250 ? 'py-4 md:py-6' : 'pt-12 pb-16 md:pt-20 md:pb-32'} px-2 md:px-10 ${(murojaahMode === 'listening' || murojaahMode === 'evaluating') ? 'h-[400px] md:h-[600px]' : 'h-[250px] md:h-[450px]'}`}>
                                                 <div
-                                                    className={`${getVerseFontSize(VERSES[currentVerseIdx].arabic)} font-quran text-white text-right flex flex-wrap justify-start transition-all duration-700 pb-20 md:pb-32`}
+                                                    className={`${getVerseFontSize(VERSES[currentVerseIdx].arabic)} font-quran text-slate-900 text-right flex flex-wrap justify-start transition-all duration-700 pb-20 md:pb-32`}
                                                     dir="rtl"
                                                     style={{ gap: '1rem 1.5rem' }}
                                                 >
                                                     {VERSES[currentVerseIdx].arabic.split(" ").map((word, idx) => (
                                                         <span
                                                             key={idx}
-                                                            className={`transition-all duration-300 ${idx === currentWordIdx ? 'text-emerald-400 scale-110 drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]' : 'opacity-90'}`}
+                                                            className={`transition-all duration-300 ${idx === currentWordIdx ? 'text-emerald-600 scale-110 drop-shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'opacity-90'}`}
                                                         >
                                                             {word}
                                                         </span>
@@ -495,13 +495,13 @@ export default function ArPage() {
                                                 </div>
 
                                                 {murojaahMode === 'evaluating' && (
-                                                    <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 bg-slate-950/20 backdrop-blur-sm rounded-3xl">
+                                                    <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 bg-slate-50/20 backdrop-blur-sm rounded-3xl">
                                                         <div className="flex space-x-1.5 items-end h-12">
                                                             {[1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1].map((h, i) => (
-                                                                <div key={i} className="w-1.5 bg-emerald-500 rounded-full animate-bounce shadow-[0_0_15px_#10b981]" style={{ height: `${h * 15}%`, animationDelay: `${i * 0.1}s` }} />
+                                                                <div key={i} className="w-1.5 bg-emerald-500 rounded-full animate-bounce shadow-[0_0_15px_rgba(16,185,129,0.4)]" style={{ height: `${h * 15}%`, animationDelay: `${i * 0.1}s` }} />
                                                             ))}
                                                         </div>
-                                                        <span className="text-emerald-400 font-mono text-xs tracking-[0.3em] uppercase animate-pulse">
+                                                        <span className="text-emerald-600 font-mono text-xs tracking-[0.3em] uppercase animate-pulse">
                                                             Spiritual Resonance Lock...
                                                         </span>
                                                     </div>
@@ -511,16 +511,16 @@ export default function ArPage() {
                                             {/* Translation & Nav */}
                                             <div className={`space-y-6 ${(murojaahMode === 'listening' || murojaahMode === 'evaluating') ? 'hidden' : ''}`}>
                                                 <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                                                <p className={`${VERSES[currentVerseIdx].translation.length > 200 ? 'text-xs md:text-sm' : 'text-sm md:text-lg'} text-slate-300 leading-relaxed text-left font-light italic transition-all duration-500 ${murojaahMode === 'listening' || murojaahMode === 'evaluating' ? 'opacity-10 blur-md' : 'opacity-100'}`}>
+                                                <p className={`${VERSES[currentVerseIdx].translation.length > 200 ? 'text-xs md:text-sm' : 'text-sm md:text-lg'} text-slate-700 leading-relaxed text-left font-light italic transition-all duration-500 ${murojaahMode === 'listening' || murojaahMode === 'evaluating' ? 'opacity-10 blur-md' : 'opacity-100'}`}>
                                                     "{VERSES[currentVerseIdx].translation}"
                                                 </p>
                                             </div>
 
                                             {/* Side Nav Arrows - Better for Mobile Touch */}
-                                            <button onClick={(e) => { e.stopPropagation(); prevVerse(); }} className="absolute -left-4 lg:left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-emerald-500/20 md:bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 hover:border-emerald-400 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-auto shadow-lg z-50">
+                                            <button onClick={(e) => { e.stopPropagation(); prevVerse(); }} className="absolute -left-4 lg:left-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-emerald-100 md:bg-white border border-slate-200 shadow-sm text-slate-600 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-900 hover:bg-emerald-500 hover:border-emerald-400 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-auto shadow-lg z-50">
                                                 <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                                             </button>
-                                            <button onClick={(e) => { e.stopPropagation(); nextVerse(); }} className="absolute -right-4 lg:right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-emerald-500/20 md:bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 hover:border-emerald-400 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-auto shadow-lg z-50">
+                                            <button onClick={(e) => { e.stopPropagation(); nextVerse(); }} className="absolute -right-4 lg:right-[-60px] top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-emerald-100 md:bg-white border border-slate-200 shadow-sm text-slate-600 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-900 hover:bg-emerald-500 hover:border-emerald-400 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-auto shadow-lg z-50">
                                                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                                             </button>
                                         </div>
@@ -529,39 +529,39 @@ export default function ArPage() {
                                     {/* SIDEBAR: Neural Insights (Desktop Only) */}
                                     <div className="hidden lg:flex w-1/3 h-full flex-col justify-center space-y-6 pl-12 pr-6">
                                         {/* Mishary Rasyid HUD inside Sidebar */}
-                                        <div className={`bg-slate-900/60 backdrop-blur-2xl border ${murojaahMode === 'corrected' ? 'border-red-500/30' : murojaahMode === 'success' ? 'border-emerald-500/30' : 'border-white/10'} rounded-[2rem] p-6 shadow-2xl transition-all duration-500 ${murojaahMode === 'idle' ? 'opacity-40 grayscale blur-[1px]' : 'opacity-100 grayscale-0 blur-0'}`}>
+                                        <div className={`bg-white/60 backdrop-blur-xl border ${murojaahMode === 'corrected' ? 'border-red-500/30' : murojaahMode === 'success' ? 'border-emerald-300' : 'border-slate-200'} rounded-[2rem] p-6 shadow-2xl transition-all duration-500 ${murojaahMode === 'idle' ? 'opacity-40 grayscale blur-[1px]' : 'opacity-100 grayscale-0 blur-0'}`}>
                                             <div className="flex items-center space-x-5 mb-6">
                                                 <div className="relative">
-                                                    <div className={`w-16 h-16 rounded-2xl overflow-hidden border-2 transition-all border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.2)]`}>
-                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hE67-6vXkL6rXvAnF_GfD7J_6v_G000000&s" alt="Mishary Rasyid" className="w-full h-full object-cover grayscale brightness-110" />
+                                                    <div className={`w-16 h-16 rounded-2xl overflow-hidden border-2 transition-all border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]`}>
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hE67-6vXkL6rXvAnF_GfD7J_6v_G000000&s" alt="Mishary Rasyid" className="w-full h-full object-cover grayscale brightness-100" />
                                                     </div>
-                                                    {(murojaahMode === 'listening' || murojaahMode === 'evaluating') && <div className="absolute -inset-1.5 border-2 border-emerald-500/40 rounded-2xl animate-ping" />}
+                                                    {(murojaahMode === 'listening' || murojaahMode === 'evaluating') && <div className="absolute -inset-1.5 border-2 border-emerald-400 rounded-2xl animate-ping" />}
                                                 </div>
                                                 <div>
                                                     <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-1">Syeikh Mishary Rasyid</p>
-                                                    <h4 className="text-white font-bold text-sm tracking-tight">Lead Reciter Persona</h4>
+                                                    <h4 className="text-slate-900 font-bold text-sm tracking-tight">Lead Reciter Persona</h4>
                                                 </div>
                                             </div>
 
                                             <div className="space-y-4">
-                                                <div className="bg-black/40 rounded-2xl p-4 border border-white/5">
-                                                    <p className="text-[10px] text-emerald-500/50 uppercase tracking-widest mb-2">Spiritual Status</p>
-                                                    <p className={`text-sm font-mono text-emerald-400`}>
+                                                <div className="bg-slate-50/40 rounded-2xl p-4 border border-slate-200">
+                                                    <p className="text-[10px] text-emerald-600 uppercase tracking-widest mb-2">Spiritual Status</p>
+                                                    <p className={`text-sm font-mono text-emerald-600`}>
                                                         {murojaahMode === 'idle' ? "READY_STANDBY" : "TALAQQI_ACTIVE"}
                                                     </p>
                                                 </div>
 
                                                 {(murojaahMode === 'corrected' || murojaahMode === 'success') && (
-                                                    <div className={`rounded-2xl p-4 border animate-in slide-in-from-top-2 ${murojaahMode === 'corrected' ? 'bg-red-500/5 border-red-500/20 text-red-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-400'}`}>
+                                                    <div className={`rounded-2xl p-4 border animate-in slide-in-from-top-2 ${murojaahMode === 'corrected' ? 'bg-red-500/5 border-red-500/20 text-red-400' : 'bg-emerald-50/50 border-emerald-200 text-emerald-600'}`}>
                                                         <p className="text-[10px] uppercase tracking-widest mb-2 opacity-50">AI Feedback</p>
                                                         <p className="text-xs font-medium leading-relaxed italic">"{teacherMessage}"</p>
                                                     </div>
                                                 )}
 
                                                 {murojaahMode === 'listening' && (
-                                                    <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-4 animate-in fade-in transition-all">
-                                                        <p className="text-[10px] text-emerald-400/50 uppercase tracking-[0.2em] mb-3">Live Recital Stream</p>
-                                                        <p className="text-emerald-400 text-sm font-mono text-right min-h-[40px] italic">"{transcript}"</p>
+                                                    <div className="bg-emerald-50/50 border border-emerald-200 rounded-2xl p-4 animate-in fade-in transition-all">
+                                                        <p className="text-[10px] text-emerald-700/60 uppercase tracking-[0.2em] mb-3">Live Recital Stream</p>
+                                                        <p className="text-emerald-600 text-sm font-mono text-right min-h-[40px] italic">"{transcript}"</p>
                                                         <div className="mt-4 flex space-x-1 h-1 justify-end">
                                                             {[...Array(12)].map((_, i) => (
                                                                 <div key={i} className="flex-1 bg-emerald-500/30 rounded-full animate-pulse" style={{ animationDelay: `${i * 0.05}s` }} />
@@ -573,27 +573,27 @@ export default function ArPage() {
                                         </div>
 
                                         {/* Secondary Stats Panel */}
-                                        <div className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[2rem] p-6 space-y-6">
+                                        <div className="bg-white/40 backdrop-blur-xl border border-slate-200 rounded-[2rem] p-6 space-y-6">
                                             <div>
                                                 <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Daily Journey</p>
                                                 <div className="flex items-center space-x-4">
-                                                    <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center border border-emerald-500/20">
+                                                    <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center border border-emerald-200">
                                                         <Trophy className="w-6 h-6 text-emerald-500" />
                                                     </div>
                                                     <div>
-                                                        <p className="text-white font-bold text-lg leading-none mb-1">{dailyStreak} Day Streak</p>
-                                                        <p className="text-[10px] text-emerald-500/60 font-mono tracking-widest uppercase">Consistency +12%</p>
+                                                        <p className="text-slate-900 font-bold text-lg leading-none mb-1">{dailyStreak} Day Streak</p>
+                                                        <p className="text-[10px] text-emerald-700 font-mono tracking-widest uppercase">Consistency +12%</p>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div className="h-[1px] w-full bg-white/5" />
+                                            <div className="h-[1px] w-full bg-white border border-slate-200 shadow-sm text-slate-600" />
 
                                             <div>
                                                 <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Diagnostic Feed</p>
                                                 <div className="space-y-3 font-mono text-[10px]">
                                                     <div className="flex justify-between"><span className="text-slate-500">Tajweed Score:</span> <span className="text-emerald-500">98.9%</span></div>
-                                                    <div className="flex justify-between"><span className="text-slate-500">Makhraj Accuracy:</span> <span className="text-cyan-500">OPTIMAL</span></div>
+                                                    <div className="flex justify-between"><span className="text-slate-500">Makhraj Accuracy:</span> <span className="text-teal-600">OPTIMAL</span></div>
                                                     <div className="flex justify-between"><span className="text-slate-500">Temporal Sync:</span> <span className="text-emerald-500">LOCKED</span></div>
                                                 </div>
                                             </div>
@@ -603,13 +603,13 @@ export default function ArPage() {
                                     {/* MOBILE ONLY: Floating AI HUD (Minimized) */}
                                     <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-full px-8 pointer-events-none">
                                         {(murojaahMode !== 'idle') && (
-                                            <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 flex items-center space-x-3 shadow-2xl animate-in slide-in-from-top-4">
+                                            <div className="bg-white/90 backdrop-blur-xl border border-slate-200 rounded-2xl p-3 flex items-center space-x-3 shadow-2xl animate-in slide-in-from-top-4">
                                                 <div className={`w-8 h-8 rounded-lg overflow-hidden border transition-colors ${murojaahMode === 'corrected' ? 'border-red-500' : 'border-emerald-500'}`}>
                                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hE67-6vXkL6rXvAnF_GfD7J_6v_G000000&s" alt="AI" className="w-full h-full object-cover grayscale" />
                                                 </div>
                                                 <div className="flex-1">
                                                     {/* Removed AI Correction Active status as requested */}
-                                                    <h4 className={`text-[10px] font-bold ${murojaahMode === 'corrected' ? 'text-red-400' : 'text-emerald-400'}`}>
+                                                    <h4 className={`text-[10px] font-bold ${murojaahMode === 'corrected' ? 'text-red-400' : 'text-emerald-600'}`}>
                                                         {murojaahMode === 'listening' ? "Listening..." : murojaahMode === 'evaluating' ? "Analyzing..." : teacherMessage.slice(0, 30) + "..."}
                                                     </h4>
                                                 </div>
@@ -619,10 +619,10 @@ export default function ArPage() {
 
                                     {/* Tracking Corners - Visible on both */}
                                     <div className="absolute inset-0 pointer-events-none opacity-20 lg:opacity-40">
-                                        <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-emerald-500/30 rounded-tl-xl" />
-                                        <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-emerald-500/30 rounded-tr-xl" />
-                                        <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-emerald-500/30 rounded-bl-xl" />
-                                        <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-emerald-500/30 rounded-br-xl" />
+                                        <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-emerald-300 rounded-tl-xl" />
+                                        <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-emerald-300 rounded-tr-xl" />
+                                        <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-emerald-300 rounded-bl-xl" />
+                                        <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-emerald-300 rounded-br-xl" />
                                     </div>
                                 </div>
                             </div>
@@ -639,35 +639,35 @@ export default function ArPage() {
                         <>
                             <div className="flex flex-col space-y-2">
                                 <div className="flex flex-col">
-                                    <div className="text-white font-bold text-sm md:text-base tracking-wider">
-                                        AR<span className="text-emerald-400">VERSE</span>
+                                    <div className="text-slate-900 font-bold text-sm md:text-base tracking-wider">
+                                        AR<span className="text-emerald-600">VERSE</span>
                                     </div>
-                                    <div className="text-white/60 text-[10px] md:text-xs font-handwriting tracking-wide">
+                                    <div className="text-slate-900/60 text-[10px] md:text-xs font-handwriting tracking-wide">
                                         by arvaas
                                     </div>
                                 </div>
                                 {/* Home Button */}
-                                <Link href="/" className="w-10 h-10 md:w-12 md:h-12 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all active:scale-95">
+                                <Link href="/" className="w-10 h-10 md:w-12 md:h-12 bg-white border border-slate-200 shadow-sm text-slate-600 backdrop-blur-md rounded-2xl border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-white/10 transition-all active:scale-95">
                                     <Home className="w-5 h-5 md:w-6 md:h-6" />
                                 </Link>
                             </div>
                             <div className="flex flex-col items-center space-y-6">
                                 <button
                                     onClick={() => setIsArMode(!isArMode)}
-                                    className="bg-black/60 backdrop-blur-xl px-4 py-2 rounded-full border border-emerald-500/30 flex items-center space-x-3 group hover:border-emerald-500 transition-all"
+                                    className="bg-slate-50/60 backdrop-blur-xl px-4 py-2 rounded-full border border-emerald-300 flex items-center space-x-3 group hover:border-emerald-500 transition-all"
                                 >
                                     <div className="flex items-center space-x-2">
-                                        <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isArMode ? 'bg-emerald-500' : 'bg-cyan-500'}`} />
-                                        <span className="text-[10px] font-bold tracking-[0.2em] text-white uppercase">
+                                        <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isArMode ? 'bg-emerald-500' : 'bg-teal-500'}`} />
+                                        <span className="text-[10px] font-bold tracking-[0.2em] text-slate-900 uppercase">
                                             {isArMode ? "Mode: AR Reality" : "Mode: Digital"}
                                         </span>
                                     </div>
                                     <div className="h-4 w-[1px] bg-white/10" />
-                                    {isArMode ? <Smartphone className="w-3.5 h-3.5 text-emerald-400" /> : <Monitor className="w-3.5 h-3.5 text-cyan-400" />}
+                                    {isArMode ? <Smartphone className="w-3.5 h-3.5 text-emerald-600" /> : <Monitor className="w-3.5 h-3.5 text-teal-600" />}
                                 </button>
                             </div>
                             <div className="flex flex-col items-end space-y-3">
-                                <div className={`text-[9px] font-bold tracking-[0.2em] uppercase transition-colors ${murojaahMode === 'listening' ? 'text-emerald-400' : 'text-white/30'}`}>
+                                <div className={`text-[9px] font-bold tracking-[0.2em] uppercase transition-colors ${murojaahMode === 'listening' ? 'text-emerald-600' : 'text-slate-900/30'}`}>
                                     {murojaahMode === 'idle' ? "Start" :
                                         murojaahMode === 'listening' ? "Listen" :
                                             murojaahMode === 'evaluating' ? "Analyzing" :
@@ -675,16 +675,16 @@ export default function ArPage() {
                                 </div>
                                 <button
                                     onClick={handleMurojaahToggle}
-                                    className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all active:scale-90 relative group overflow-hidden ${murojaahMode === 'listening' ? 'bg-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.5)]' : 'bg-emerald-600/20 backdrop-blur-md border border-emerald-500/30'}`}
+                                    className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all active:scale-90 relative group overflow-hidden ${murojaahMode === 'listening' ? 'bg-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.1)]' : 'bg-emerald-600/20 backdrop-blur-md border border-emerald-300'}`}
                                 >
                                     {murojaahMode === 'listening' || murojaahMode === 'evaluating' ? (
-                                        <div className="absolute inset-0 bg-emerald-500/20 animate-pulse" />
+                                        <div className="absolute inset-0 bg-emerald-100 animate-pulse" />
                                     ) : null}
 
                                     {murojaahMode === 'listening' ? (
-                                        <Pause className="w-6 h-6 text-white" />
+                                        <Pause className="w-6 h-6 text-slate-900" />
                                     ) : (
-                                        <Play className="w-6 h-6 text-emerald-400 group-hover:text-white transition-colors ml-1" />
+                                        <Play className="w-6 h-6 text-emerald-600 group-hover:text-slate-900 transition-colors ml-1" />
                                     )}
                                 </button>
                             </div>
@@ -707,9 +707,7 @@ export default function ArPage() {
                     animation: float 6s ease-in-out infinite;
                 }
                 .bg-mesh {
-                    background-image: 
-                        linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+                    background-image: linear-gradient(to right, rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
                     background-size: 50px 50px;
                 }
             `}</style>
